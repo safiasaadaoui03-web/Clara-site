@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 7% 4%;
+    --foreground: 0 0% 97%;
+    --card: 240 7% 6%;
+    --card-foreground: 0 0% 97%;
+    --popover: 240 7% 6%;
+    --popover-foreground: 0 0% 97%;
+    --primary: 37 35% 63%;
+    --primary-foreground: 240 7% 4%;
+    --secondary: 40 20% 92%;
+    --secondary-foreground: 240 7% 4%;
+    --muted: 240 5% 15%;
+    --muted-foreground: 40 10% 72%;
+    --accent: 37 35% 63%;
+    --accent-foreground: 240 7% 4%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 37 35% 63%;
+    --radius: 0px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Typography */
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Custom colors */
+.bg-primary-dark {
+  background-color: #0B0B0D;
+}
+
+.bg-secondary-light {
+  background-color: #F4F1EA;
+}
+
+.text-accent-gold {
+  color: #C9A87C;
+}
+
+.bg-accent-gold {
+  background-color: #C9A87C;
+}
+
+.text-muted-warm {
+  color: #B8B4AA;
+}
+
+/* Grain overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0B0D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A87C;
+}
+
+/* Selection */
+::selection {
+  background: rgba(201, 168, 124, 0.3);
+  color: #F7F7F7;
+}
+
+/* Button hover effects */
+.btn-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-hover:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Image card hover */
+.image-card-hover {
+  transition: transform 0.3s ease;
+}
+
+.image-card-hover:hover {
+  transform: scale(1.01);
+}
+
+/* Phase card glass effect */
+.glass-card {
+  background: rgba(11, 11, 13, 0.55);
+  border: 1px solid rgba(247, 247, 247, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Pinned section base */
+.pinned-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Gradient overlay for hero */
+.hero-gradient {
+  background: linear-gradient(to right, rgba(11, 11, 13, 0.72) 0%, rgba(11, 11, 13, 0.22) 100%);
+}
+
+/* Countdown timer styling */
+.countdown-digit {
+  font-family: 'IBM Plex Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Form input styling */
+input, textarea {
+  background: transparent;
+  border: 1px solid rgba(247, 247, 247, 0.15);
+  color: #F7F7F7;
+  transition: border-color 0.2s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #C9A87C;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #B8B4AA;
+}
+
+/* Light section form */
+.light-section input,
+.light-section textarea {
+  border-color: rgba(11, 11, 13, 0.2);
+  color: #0B0B0D;
+}
+
+.light-section input::placeholder,
+.light-section textarea::placeholder {
+  color: #666;
+}
+
+/* Responsive typography */
+.text-hero {
+  font-size: clamp(44px, 6vw, 84px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.text-section {
+  font-size: clamp(34px, 4.2vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.text-body {
+  font-size: clamp(14px, 1.2vw, 18px);
+  line-height: 1.6;
+}
+
+.text-label {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
